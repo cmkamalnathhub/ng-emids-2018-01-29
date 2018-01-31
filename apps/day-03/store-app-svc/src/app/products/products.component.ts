@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Product } from '../models/product';
 import { LoggerService } from '../services/logger.service';
@@ -8,13 +8,17 @@ import { ProductsService } from '../services/products.service';
   selector: 'app-products',
   templateUrl: './products.component.html'
 })
-export class ProductsComponent {
+export class ProductsComponent implements OnInit {
   products: Product[] = [];
+  searchText = '';
+  color = 'lightgreen';
 
   constructor(
     private loggerService: LoggerService,
     private productsService: ProductsService
-  ) {
+  ) {}
+
+  ngOnInit() {
     this.products = this.productsService.getProducts();
   }
 

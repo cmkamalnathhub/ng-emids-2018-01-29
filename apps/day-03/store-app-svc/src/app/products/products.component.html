@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <h2>Products</h2>
+      <h2 app-highlight [highlightColor]="color">Products</h2>
     </div>
   </div>
 
@@ -14,7 +14,9 @@
     <div class="col-sm-7">
       <h3>Product List</h3>
       <!-- Product List -->
-      <app-product-detail [product]="p" *ngFor="let p of products"></app-product-detail>
+      <input class="form-control" placeholder="Search for..." [(ngModel)]="searchText" />
+      <br>
+      <app-product-detail [product]="p" *ngFor="let p of products | searchProducts : searchText : 'name'"></app-product-detail>
     </div>
   </div>
 </div>
