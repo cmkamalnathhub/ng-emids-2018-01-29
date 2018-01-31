@@ -1,0 +1,31 @@
+Component Lifecycle Hooks
+-------------------------
+A component has a lifecycle managed by Angular.
+
+Angular 
+- creates a component, 
+- renders it, 
+- creates and renders its children, 
+- checks it when its data-bound properties change, and 
+- destroys it before removing it from the DOM.
+
+Developers can tap into key moments in that lifecycle by implementing one or more of the lifecycle hook interfaces in the Angular core library.
+
+ngOnChanges - Executed at the start when the component is created. Also called whenever 
+              bound input properties change. Properties decorated with @Input()
+
+ngOnInit    - Called once the component is initialized. Runs after the constructor
+
+ngDoCheck   - Called during every change detection run. Runs multiple times. Change detection 
+              is the system by which Angular determines whenever something changed on the template of a component or inside of a component whether it should change something in the template. Can be used if you want to do something on every change detection cycle
+			  
+ngAfterContentInit - Called after content (ng-content) has been projected into view
+
+ngAfterContentChecked - Called every time the projected content has been checked
+
+ngAfterViewInit - Called after the component's view (and child views) has/have been initialized
+
+ngAfterViewChecked - Called every time the view (and child views) has/have been checked
+
+ngOnDestroy - Called once the component is about to be destroyed
+
